@@ -1,0 +1,123 @@
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1><i class="bi bi-speedometer2"></i> Dashboard Admin</h1>
+        <p class="text-muted">Monitor aktivitas toko dan pembelian</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Total Produk</h5>
+                        <h2 class="mb-0"><%= totalProduk %></h2>
+                    </div>
+                    <i class="bi bi-box display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Total Stock</h5>
+                        <h2 class="mb-0"><%= totalStock %></h2>
+                    </div>
+                    <i class="bi bi-clipboard-data display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Pembelian Selesai</h5>
+                        <h2 class="mb-0"><%= pembelianSelesai %></h2>
+                    </div>
+                    <i class="bi bi-check-circle display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Pembelian Dibatalkan</h5>
+                        <h2 class="mb-0"><%= pembelianDibatalkan %></h2>
+                    </div>
+                    <i class="bi bi-x-circle display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="bi bi-lightning"></i> Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                        <a href="/pembelian?status=pending" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="bi bi-cart-plus display-6 d-block mb-2"></i>
+                            Input Pembelian Baru
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/pembelian?status=diproses" class="btn btn-outline-success btn-lg w-100">
+                            <i class="bi bi-arrow-clockwise display-6 d-block mb-2"></i>
+                            Proses Pembelian
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <button class="btn btn-outline-danger btn-lg w-100" data-bs-toggle="modal" data-bs-target="#cancelModal">
+                            <i class="bi bi-x-octagon display-6 d-block mb-2"></i>
+                            Cancel Pembelian
+                        </button>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/stock" class="btn btn-outline-info btn-lg w-100">
+                            <i class="bi bi-clipboard-plus display-6 d-block mb-2"></i>
+                            Cek Stock
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal untuk cancel pembelian -->
+<div class="modal fade" id="cancelModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cancel Pembelian</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Untuk membatalkan pembelian, silakan pergi ke halaman 
+                    <a href="/pembelian">Management Pembelian</a> dan ubah status pembelian menjadi "dibatalkan".
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <a href="/pembelian" class="btn btn-primary">Ke Halaman Pembelian</a>
+            </div>
+        </div>
+    </div>
+</div>
